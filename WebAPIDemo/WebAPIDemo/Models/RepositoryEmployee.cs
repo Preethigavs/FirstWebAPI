@@ -21,17 +21,18 @@
             _context.Employees.Add(newEmployee);
             return _context.SaveChanges();
         }
-        //public int ModifyEmployee(int id)
-        //{
-        //    Employee emp = _context.Employees.Find(id);
-        //    _context.Employees.Update(emp);
-        //    return _context.SaveChanges();
-        //}
-        //public int DeleteEmployee(int id)
-        //{
-        //    Employee emp = _context.Employees.Find(id);
-        //    _context.Employees.Remove(emp);
-        //    return _context.SaveChanges();
-        //}
+
+        public int DeleteEmployee(int id)
+        {
+            Employee emp = _context.Employees.Find(id);
+            _context.Employees.Remove(emp);
+            return _context.SaveChanges();
+        }
+        public Employee UpdateEmployee(Employee updatedEmployee)
+        {
+            _context.Employees.Update(updatedEmployee);
+            _context.SaveChanges();
+            return updatedEmployee;
+        }
     }
 }
